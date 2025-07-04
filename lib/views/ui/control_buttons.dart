@@ -49,6 +49,10 @@ class ControlButtons extends StatelessWidget {
               Icon(Icons.brush),
               ImageIcon(AssetImage(ImagePass.iconEraser)),
             ], 
+            messages: [
+              "筆",
+              "消しゴム",
+            ],
           ),
           
           ToolBarDivider(isVertivcal: true,),

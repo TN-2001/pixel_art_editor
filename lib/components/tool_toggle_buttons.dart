@@ -55,7 +55,11 @@ class _ToolToggleButtonsState extends State<ToolToggleButtons> {
           for (int i = 0; i < widget.icons.length; i++)...{
             Tooltip(
               message: widget.messages.length > i ? widget.messages[i] : "",
-              child: widget.icons[i]
+              child: SizedBox(
+                width: ToolUIDimens.width - ToolUIDimens.borderWidth*2,
+                height: ToolUIDimens.height - ToolUIDimens.borderWidth*2,
+                child: widget.icons[i],
+              ),
             ),
           },
         ],
