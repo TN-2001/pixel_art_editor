@@ -6,8 +6,8 @@ import 'package:pixel_art_editor/constants/colors.dart';
 import 'package:pixel_art_editor/constants/paths.dart';
 import '../models/pixel_canvas_controller.dart';
 
-class ControlButtons extends StatelessWidget {
-  const ControlButtons({super.key, required this.controller});
+class ToolBar extends StatelessWidget {
+  const ToolBar({super.key, required this.controller});
   
   final PixelCanvasController controller;
 
