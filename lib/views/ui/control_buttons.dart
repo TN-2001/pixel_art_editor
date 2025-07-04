@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pixel_art_editor/components/tool_bar_divider.dart';
+import 'package:pixel_art_editor/components/tool_icon_button.dart';
+import 'package:pixel_art_editor/components/tool_toggle_buttons.dart';
+import 'package:pixel_art_editor/constants/colors.dart';
+import 'package:pixel_art_editor/constants/paths.dart';
 import '../models/pixel_canvas_controller.dart';
 
 class ControlButtons extends StatelessWidget {
@@ -8,15 +13,47 @@ class ControlButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(onPressed: controller.undo, child: Text("Undo")),
-        SizedBox(width: 8),
-        ElevatedButton(onPressed: controller.redo, child: Text("Redo")),
-        SizedBox(width: 8),
-        ElevatedButton(onPressed: controller.clear, child: Text("Clear")),
-      ],
+    return Container(
+      color: ToolBarColors.baseColor,
+      child: Row(
+        children: [
+          ToolIconButton(
+            message: "メニュー", 
+            onPressed: (){},
+            icon: Icon(Icons.menu), 
+          ),
+
+          ToolBarDivider(isVertivcal: true,),
+
+          ToolIconButton(
+            onPressed: controller.undo,
+            icon: Icon(Icons.undo), 
+            message: "戻る", 
+          ),
+          ToolIconButton(
+            onPressed: controller.redo,
+            icon: Icon(Icons.redo), 
+            message: "進む", 
+          ),
+          ToolIconButton(
+            onPressed: controller.clear,
+            icon: Icon(Icons.clear), 
+            message: "クリア", 
+          ),
+
+          ToolBarDivider(isVertivcal: true,),
+
+          ToolToggleButtons(
+            onPressed: (value){},
+            icons: [
+              Icon(Icons.brush),
+              ImageIcon(AssetImage(ImagePass.iconEraser)),
+            ], 
+          ),
+          
+          ToolBarDivider(isVertivcal: true,),
+        ],
+      ),
     );
   }
 }

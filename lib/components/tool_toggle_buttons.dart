@@ -6,13 +6,13 @@ import '../constants/dimens.dart';
 class ToolToggleButtons extends StatefulWidget {
   const ToolToggleButtons({
     super.key, 
-    required this.icons, 
     required this.onPressed,
+    required this.icons, 
     this.messages = const [],
   });
 
-  final List<IconData> icons;
   final void Function(int index) onPressed;
+  final List<Widget> icons;
   final List<String> messages;
 
   @override
@@ -39,8 +39,8 @@ class _ToolToggleButtonsState extends State<ToolToggleButtons> {
         selectedBorderColor: ToolUIColors.borderColor,
         borderRadius: BorderRadius.zero,
         constraints: BoxConstraints(
-          minWidth: ToolUIDimens.width - ToolUIDimens.borderWidth-2,
-          minHeight: ToolUIDimens.height - ToolUIDimens.borderWidth-2,
+          minWidth: ToolUIDimens.width - ToolUIDimens.borderWidth*2,
+          minHeight: ToolUIDimens.height - ToolUIDimens.borderWidth*2,
         ),
         // イベント
         onPressed: (int index) {
@@ -55,9 +55,7 @@ class _ToolToggleButtonsState extends State<ToolToggleButtons> {
           for (int i = 0; i < widget.icons.length; i++)...{
             Tooltip(
               message: widget.messages.length > i ? widget.messages[i] : "",
-              child: Icon(
-                widget.icons[i]
-              ),
+              child: widget.icons[i]
             ),
           },
         ],
