@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pixel_art_editor/components/tool_bar_divider.dart';
-import 'package:pixel_art_editor/components/tool_icon_button.dart';
-import 'package:pixel_art_editor/components/tool_toggle_buttons.dart';
+import 'package:pixel_art_editor/components/tool_ui/tool_bar_divider.dart';
+import 'package:pixel_art_editor/components/tool_ui/tool_icon_button.dart';
+import 'package:pixel_art_editor/components/tool_ui/tool_toggle_buttons.dart';
 import 'package:pixel_art_editor/constants/colors.dart';
 import 'package:pixel_art_editor/constants/paths.dart';
 import '../models/pixel_canvas_controller.dart';
@@ -25,6 +25,20 @@ class ToolBar extends StatelessWidget {
 
           ToolBarDivider(isVertivcal: true,),
 
+          ToolToggleButtons(
+            onPressed: (value){},
+            icons: [
+              Icon(Icons.brush),
+              ImageIcon(AssetImage(ImagePass.iconEraser)),
+            ], 
+            messages: [
+              "筆",
+              "消しゴム",
+            ],
+          ),
+
+          ToolBarDivider(isVertivcal: true,),
+
           ToolIconButton(
             onPressed: controller.undo,
             icon: Icon(Icons.undo), 
@@ -40,21 +54,7 @@ class ToolBar extends StatelessWidget {
             icon: Icon(Icons.clear), 
             message: "クリア", 
           ),
-
-          ToolBarDivider(isVertivcal: true,),
-
-          ToolToggleButtons(
-            onPressed: (value){},
-            icons: [
-              Icon(Icons.brush),
-              ImageIcon(AssetImage(ImagePass.iconEraser)),
-            ], 
-            messages: [
-              "筆",
-              "消しゴム",
-            ],
-          ),
-          
+ 
           ToolBarDivider(isVertivcal: true,),
         ],
       ),
